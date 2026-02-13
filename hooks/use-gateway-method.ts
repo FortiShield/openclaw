@@ -16,7 +16,10 @@ export function useGatewayMethod<TResult = unknown, TParams = unknown>(
       setLoading(true);
       setError(null);
       try {
-        const result = await request<TResult>(method, params ?? {});
+        const result = await request<TResult>(
+          method,
+          params === undefined ? undefined : params,
+        );
         setData(result);
         return result;
       } catch (err) {
