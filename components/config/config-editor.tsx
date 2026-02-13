@@ -24,7 +24,7 @@ export function ConfigEditor() {
   }, [state, call]);
 
   useEffect(() => {
-    if (data?.raw) {
+    if (data?.raw != null) {
       setEditorValue(data.raw);
       setIsDirty(false);
     }
