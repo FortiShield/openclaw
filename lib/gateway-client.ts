@@ -233,7 +233,7 @@ export class BrowserGatewayClient {
   async request<T = unknown>(
     method: string,
     params?: unknown,
-    opts?: { expectFinal?: boolean },
+    opts?: { expectFinal?: boolean; timeoutMs?: number },
   ): Promise<T> {
     if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
       throw new Error("gateway not connected");
@@ -241,6 +241,7 @@ export class BrowserGatewayClient {
     const id = crypto.randomUUID();
     const frame: RequestFrame = { type: "req", id, method, params };
     const expectFinal = opts?.expectFinal === true;
+    const timeoutMs = opts?.timeoutMs ?? 30_000;
 
     const promise = new Promise<T>((resolve, reject) => {
       this.pending.set(id, {
@@ -248,6 +249,11 @@ export class BrowserGatewayClient {
         reject,
         expectFinal,
       });
+      setTimeout(() => {
+        if (this.pending.delete(id)) {
+          reject(new Error(`request "${method}" timed out after ${timeoutMs}ms`));
+        }
+      }, timeoutMs);
     });
 
     this.ws.send(JSON.stringify(frame));
