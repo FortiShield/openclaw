@@ -1,0 +1,5 @@
+# CLAWDIS Dashboard - Admin Interface
+# This is a private admin dashboard and should not be indexed
+
+User-agent: *
+Disallow: /
