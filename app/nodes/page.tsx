@@ -2,6 +2,7 @@
 
 import { NodeList } from "@/components/nodes/node-list";
 import { PairRequests } from "@/components/nodes/pair-requests";
+import { Suspense } from "react";
 
 export default function NodesPage() {
   return (
@@ -15,8 +16,12 @@ export default function NodesPage() {
         </p>
       </div>
 
-      <PairRequests />
-      <NodeList />
+      <Suspense fallback={<div className="h-96 animate-pulse bg-secondary rounded-xl" />}>
+        <PairRequests />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 animate-pulse bg-secondary rounded-xl" />}>
+        <NodeList />
+      </Suspense>
     </div>
   );
 }

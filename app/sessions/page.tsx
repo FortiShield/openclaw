@@ -1,6 +1,7 @@
 "use client";
 
 import { SessionTable } from "@/components/sessions/session-table";
+import { Suspense } from "react";
 
 export default function SessionsPage() {
   return (
@@ -14,7 +15,9 @@ export default function SessionsPage() {
         </p>
       </div>
 
-      <SessionTable />
+      <Suspense fallback={<div className="h-96 animate-pulse bg-secondary rounded-xl" />}>
+        <SessionTable />
+      </Suspense>
     </div>
   );
 }
