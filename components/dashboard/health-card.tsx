@@ -7,7 +7,7 @@ import type { HealthSummary } from "@/lib/protocol-types";
 import { cn } from "@/lib/utils";
 import { formatDuration } from "@/lib/utils";
 import { Heart, Loader2, MessageCircle, Send } from "lucide-react";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 export function HealthCard() {
   const { state } = useGateway();
@@ -21,9 +21,9 @@ export function HealthCard() {
   }, [state, call]);
 
   // Refresh on health events
-  useGatewayEvent("health", () => {
+  useGatewayEvent("health", useCallback(() => {
     call();
-  });
+  }, [call]));
 
   if (loading && !health) {
     return (

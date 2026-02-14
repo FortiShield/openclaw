@@ -5,8 +5,17 @@ import { useContext } from "react";
 
 export function useGateway() {
   const ctx = useContext(GatewayContext);
-  if (!ctx) {
-    throw new Error("useGateway must be used within a GatewayProvider");
+  if (ctx === null) {
+    // Return a stub context during SSR to prevent errors
+    return {
+      state: "disconnected" as const,
+      serverInfo: null,
+      snapshot: null,
+      request: async () => {
+        throw new Error("Gateway not available during SSR");
+      },
+      subscribe: () => () => {},
+    };
   }
   return ctx;
 }
