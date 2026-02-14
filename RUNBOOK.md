@@ -12,7 +12,7 @@ Emergency procedures and troubleshooting guide for production incidents.
 
 ## On-Call Rotation
 
-Contact information will be maintained separately in secure system.
+Contact information will be maintained separately in a secure system.
 
 ## Incident Severity Levels
 
