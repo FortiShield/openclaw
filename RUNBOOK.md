@@ -143,7 +143,7 @@ curl https://gateway.clawdis.dev/health
 
 #### Check 2: Proxy Configuration
 - For nginx: Verify WebSocket upgrade headers
-- For CloudFlare: Check that WebSockets are enabled
+- For Cloudflare: Check that WebSockets are enabled
 - For AWS ALB: Ensure sticky sessions enabled
 
 ```nginx
