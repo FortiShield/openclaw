@@ -5,7 +5,7 @@
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "clawdis": "dist/index.js"
+    "openclaw": "dist/index.js"
   },
   "scripts": {
     "dev": "next dev --turbopack",
