@@ -261,7 +261,7 @@ kubectl get pods -n clawdis
 - Asset compression
 - Image optimization (Next.js built-in)
 - WebSocket compression ready
-- CDN-friendly (Vercel, CloudFlare compatible)
+- CDN-friendly (Vercel, Cloudflare compatible)
 
 ### Deployment
 - Multi-platform support (Vercel, Docker, Kubernetes, AWS, GCP)
