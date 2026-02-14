@@ -16,13 +16,43 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CLAWDIS Dashboard",
+  title: {
+    default: "CLAWDIS Dashboard",
+    template: "%s | CLAWDIS",
+  },
   description:
-    "Admin dashboard for CLAWDIS WhatsApp/Telegram AI gateway",
+    "Admin dashboard for CLAWDIS WhatsApp/Telegram AI gateway - Real-time monitoring and management",
+  keywords: [
+    "CLAWDIS",
+    "WhatsApp",
+    "Telegram",
+    "AI Gateway",
+    "Dashboard",
+    "Admin",
+  ],
+  authors: [{ name: "CLAWDIS Contributors" }],
+  creator: "CLAWDIS",
+  publisher: "CLAWDIS",
+  robots: {
+    index: false,
+    follow: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+    siteName: "CLAWDIS Dashboard",
+    description:
+      "Admin dashboard for CLAWDIS WhatsApp/Telegram AI gateway",
+  },
 };
 
 export const viewport: Viewport = {
   themeColor: "#0a0a0a",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
