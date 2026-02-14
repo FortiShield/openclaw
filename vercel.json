@@ -1,0 +1,47 @@
+{
+  "buildCommand": "pnpm build",
+  "installCommand": "pnpm install",
+  "devCommand": "pnpm dev",
+  "env": {
+    "NEXT_PUBLIC_APP_URL": {
+      "description": "Application URL for production",
+      "required": true
+    },
+    "NEXT_PUBLIC_GATEWAY_BASE_URL": {
+      "description": "Gateway base URL for API calls",
+      "required": true
+    },
+    "NEXT_PUBLIC_GATEWAY_WS_URL": {
+      "description": "Gateway WebSocket URL for real-time updates",
+      "required": true
+    },
+    "NEXT_PUBLIC_APP_VERSION": {
+      "description": "Application version",
+      "required": false
+    },
+    "NEXT_PUBLIC_SENTRY_DSN": {
+      "description": "Sentry DSN for error tracking",
+      "required": false
+    },
+    "NEXT_PUBLIC_VERCEL_ANALYTICS_ID": {
+      "description": "Vercel Analytics ID",
+      "required": false
+    }
+  },
+  "regions": ["iad1", "sfo1"],
+  "functions": {
+    "app/api/**": {
+      "maxDuration": 60,
+      "memory": 512
+    }
+  },
+  "public": false,
+  "github": {
+    "enabled": true,
+    "autoAlias": true,
+    "autoExpire": 604800,
+    "autoExpireLimit": 50,
+    "protected": ["main", "production"],
+    "silent": false
+  }
+}

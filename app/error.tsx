@@ -11,7 +11,8 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error("[v0] Application error:", error);
+    // Error logging handled by Sentry or other monitoring service
+    // Error is displayed to user in UI
   }, [error]);
 
   return (

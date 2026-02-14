@@ -1,0 +1,6 @@
+Contact: security@clawdis.dev
+Expires: 2026-12-31T23:59:59Z
+Preferred-Languages: en
+Canonical: https://dashboard.clawdis.dev/.well-known/security.txt
+Policy: https://clawdis.dev/security
+Acknowledgments: https://clawdis.dev/security-acknowledgments
