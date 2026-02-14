@@ -2,6 +2,7 @@
 
 import { ConfigEditor } from "@/components/config/config-editor";
 import { VoiceWakeEditor } from "@/components/config/voicewake-editor";
+import { Suspense } from "react";
 
 export default function ConfigPage() {
   return (
@@ -15,8 +16,12 @@ export default function ConfigPage() {
         </p>
       </div>
 
-      <ConfigEditor />
-      <VoiceWakeEditor />
+      <Suspense fallback={<div className="h-96 animate-pulse bg-secondary rounded-xl" />}>
+        <ConfigEditor />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 animate-pulse bg-secondary rounded-xl" />}>
+        <VoiceWakeEditor />
+      </Suspense>
     </div>
   );
 }

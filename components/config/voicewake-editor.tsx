@@ -29,7 +29,7 @@ export function VoiceWakeEditor() {
   }, [data]);
 
   // Live sync
-  useGatewayEvent("voicewake.changed", () => call());
+  useGatewayEvent("voicewake.changed", useCallback(() => call(), [call]));
 
   const handleAdd = () => {
     const trimmed = newTrigger.trim().toLowerCase();
