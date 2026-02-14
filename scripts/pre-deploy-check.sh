@@ -42,7 +42,7 @@ section() {
 # Check functions
 check_node_version() {
     section "Checking Node.js Version"
-    REQUIRED_VERSION="22.0.0"
+    REQUIRED_VERSION="22.12.0"
     ACTUAL_VERSION=$(node --version | cut -d'v' -f2)
     
     if [[ $(printf '%s\n' "$REQUIRED_VERSION" "$ACTUAL_VERSION" | sort -V | head -n1) == "$REQUIRED_VERSION" ]]; then
