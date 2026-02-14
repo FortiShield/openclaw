@@ -45,7 +45,7 @@ export function CronTable({
   }, [state, call]);
 
   // Live updates
-  useGatewayEvent("cron", () => call({ includeDisabled: true }));
+  useGatewayEvent("cron", useCallback(() => call({ includeDisabled: true }), [call]));
 
   const handleToggle = useCallback(
     async (job: CronJob) => {

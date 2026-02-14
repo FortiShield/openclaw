@@ -18,8 +18,8 @@ export function PairRequests() {
   }, [state, call]);
 
   // Live updates
-  useGatewayEvent("node.pair.requested", () => call());
-  useGatewayEvent("node.pair.resolved", () => call());
+  useGatewayEvent("node.pair.requested", useCallback(() => call(), [call]));
+  useGatewayEvent("node.pair.resolved", useCallback(() => call(), [call]));
 
   const handleApprove = useCallback(
     async (requestId: string) => {
