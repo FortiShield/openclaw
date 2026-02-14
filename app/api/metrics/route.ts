@@ -10,10 +10,7 @@ export async function POST(request: NextRequest) {
   try {
     const metric = await request.json();
 
-    // Log metric to console in development
-    if (process.env.NODE_ENV === "development") {
-      console.log("[v0] Web Vital Metric:", metric);
-    }
+    // Metrics are sent to monitoring service
 
     // In production, you can:
     // - Send to analytics service (e.g., Vercel Analytics, Sentry, DataDog)
@@ -25,7 +22,6 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    console.error("[v0] Error processing metric:", error);
     return NextResponse.json(
       { success: false, error: "Failed to process metric" },
       { status: 400 }

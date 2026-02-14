@@ -291,6 +291,5 @@ Use this space for deployment-specific notes:
 ---
 
 **Document Created**: February 2026
-**CLAWDIS Version**: 2.0.0-beta1
 **Last Updated**: _____________
 **Next Review**: _____________
